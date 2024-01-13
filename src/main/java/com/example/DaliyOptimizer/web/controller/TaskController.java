@@ -47,4 +47,9 @@ public class TaskController {
     public void deleteTask(@PathVariable int id){
         taskService.deleteById(id);
     }
+    @GetMapping("/priority/{priority}")
+    public ResponseEntity<List<Task>> getTasksByPriority(@PathVariable String priority) {
+        List<Task> tasks = taskService.findByPriority(priority);
+        return ResponseEntity.ok(tasks);
+    }
 }
