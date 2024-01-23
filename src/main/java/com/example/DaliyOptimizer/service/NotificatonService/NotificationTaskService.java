@@ -38,7 +38,7 @@ public class NotificationTaskService {
         for (Task task : upcomingTasks) {
             String recipientEmail = user.getEmail(); // Assuming user has an email
             String subject = "Task Reminder: " + task.getName();
-            String message = "You have an upcoming task: " + task.getName() + " due on " + task.getDeadline();
+            String message = "You have an upcoming task: " + task.getName() + " due on " + task.getDeadLine();
             notificationService.sendEmailNotification(recipientEmail, subject, message);
         } }
 
@@ -52,7 +52,7 @@ public class NotificationTaskService {
             calendar.add(Calendar.DAY_OF_MONTH, 1); // Adjust the time frame as needed
             Date tomorrowDate = calendar.getTime();
 
-            List<Task> upcomingTasks = taskRepository.findByDeadlineBetween(currentDate, tomorrowDate);
+            List<Task> upcomingTasks = taskRepository.findByDeadLineBetween(currentDate, tomorrowDate);
 
             // Iterate through the upcoming tasks and send notifications
             for (Task task : upcomingTasks) {
@@ -61,7 +61,7 @@ public class NotificationTaskService {
                     // Customize the notification message based on your requirements
                     String recipientEmail = task.getUser().getEmail(); // Assuming User has an email property
                     String subject = "Task Reminder: " + task.getName();
-                    String message = "You have an upcoming task: " + task.getName() + " due on " + task.getDeadline();
+                    String message = "You have an upcoming task: " + task.getName() + " due on " + task.getDeadLine();
 
                     // Send the notification (you can use your notification service here)
                     notificationService.sendEmailNotification(recipientEmail, subject, message);

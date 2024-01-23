@@ -27,11 +27,14 @@ public class Task {
     private Date dateCreated;
     private Date deadLine;
     private boolean completed;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public Task() {
     }
 
-    public Task(String description, String name, Date dateCreated,String priority,Date deadLine,boolean completed) {
+    public Task(String description, String name, Date dateCreated, String priority, Date deadLine, boolean completed) {
         this.name = name;
         this.description = description;
         this.dateCreated = dateCreated;

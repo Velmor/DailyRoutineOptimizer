@@ -41,7 +41,7 @@ public class TaskServiceImpl implements TaskService {
         String description = taskCreate.getDescription();
         Date dateCreated = taskCreate.getDateCreated();
         String priority = taskCreate.getPriority();
-        Date deadline = taskCreate.getDeadline();
+        Date deadline = taskCreate.getDeadLine();
         boolean completed = taskCreate.isCompleted(); // Assuming a boolean property for completion status
 
         // Create a new Task entity
@@ -86,7 +86,7 @@ public class TaskServiceImpl implements TaskService {
     public List<Task> findByDeadlineAfter(Date startDate)
     {
         Date endDate = new Date(Long.MAX_VALUE); // Set a default end date
-        return taskRepository.findByDeadlineBetween(startDate, endDate);
+        return taskRepository.findByDeadLineBetween(startDate, endDate);
     }
 
     public List<Task> getUpcomingTasks() {
@@ -94,7 +94,7 @@ public class TaskServiceImpl implements TaskService {
         Date currentDate = new Date();
 
         // Use the repository method to retrieve upcoming tasks
-        return taskRepository.findByDeadlineAfter(currentDate);
+        return taskRepository.findByDeadLineAfter(currentDate);
     }
 
 }

@@ -12,4 +12,5 @@ public class DaliyOptimizerApplication {
 		SpringApplication.run(DaliyOptimizerApplication.class, args);
 	}
 
+
 }
